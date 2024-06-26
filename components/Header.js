@@ -8,7 +8,7 @@ const Header = ({ theme }) => {
       <View style={styles.userProfile}>
         <Image source={require('../assets/profile.png')} style={styles.profile} />
         <View>
-          <Text style={[styles.welcomeText, { color: theme.text }]}>Welcome Back</Text>
+          <Text style={[styles.welcomeText, { color: theme.subText }]}>Welcome Back</Text>
           <Text style={[styles.userName, { color: theme.text }]}>Eric Atsu</Text>
         </View>
       </View>

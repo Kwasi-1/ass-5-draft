@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 
 const SettingsOption = ({ item, theme }) => {
   return (
-    <View style={[styles.container, { backgroundColor: theme.color }]}>
+    <View style={[styles.container, { backgroundColor: theme.card }, { borderColor: theme.borderColor }]}>
       <Text style={[styles.option, { color: theme.text }]}>{item.name}</Text>
       <Icon name="chevron-right" size={30} color="#777" />
     </View>
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderColor: '#f2f2f2'
+    borderBottomWidth: 2,
+    
   },
   option: {
     fontSize: 14,

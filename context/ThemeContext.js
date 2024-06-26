@@ -7,21 +7,26 @@ export const lightTheme = {
   background: '#fff',
   text: '#000',
   color: '#f2f2f2',
-  card: '#f5f5f5',
-  iconBackground: '#f5f5f5',
+  tabsBgColor: '#fff',
+  card: '#fff',
+  borderColor: '#f4f4f4',
+  iconBackground: '#f4f4f4',
   headerBackground: '#fff',
   transactionBackground: '#fff',
   transactionText: '#0D0D26',
 };
 
 export const darkTheme = {
-  background: '#000',
+  background: '#161622',
   text: '#fff',
-  card: '#333',
+  subText: '#a2a2a7',
+  card: '#161622',
   color: '#333',
-  iconBackground: '#444',
-  headerBackground: '#000',
-  transactionBackground: '#1a1a1a',
+  tabsBgColor: '#27273a',
+  borderColor: '#1c1d2a',
+  iconBackground: '#1e1e2d',
+  headerBackground: '#161622',
+  transactionBackground: '#161622',
   transactionText: '#fff',
 };
 

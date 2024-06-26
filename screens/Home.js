@@ -26,7 +26,7 @@ const Home = () => {
       />
       <View style={styles.sectionHeader}>
         <Text style={[styles.sectionTitle, { color: theme.text }]}>Transaction</Text>
-        <Text style={[styles.sectionSubTitle, { color: 'blue' }]}>See All</Text>
+        <Text style={[styles.sectionSubTitle, { color: '#0262f3' }]}>See All</Text>
       </View>
     </View>
   );
