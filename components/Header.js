@@ -1,59 +1,59 @@
-import react from "react";
-import { Text, View, Image, StyleSheet } from "react-native";
+// components/Header.js
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
 
-const Header = () => {
-  return (  
-    <View style={styles.header}>
+const Header = ({ theme }) => {
+  return (
+    <View style={[styles.header, { backgroundColor: theme.headerBackground }]}>
       <View style={styles.userProfile}>
         <Image source={require('../assets/profile.png')} style={styles.profile} />
         <View>
-          <Text style={styles.welcomeText}>Welcome Back</Text>
-          <Text style={styles.userName}>Eric Atsu</Text>
+          <Text style={[styles.welcomeText, { color: theme.text }]}>Welcome Back</Text>
+          <Text style={[styles.userName, { color: theme.text }]}>Eric Atsu</Text>
         </View>
       </View>
-      <View style= {styles.searchIconContainer}>
+      <View style={[styles.searchIconContainer, { backgroundColor: theme.iconBackground }]}>
         <Image source={require('../assets/search.png')} style={styles.searchIcon} />
       </View>
     </View>
   );
 }
 
-
 const styles = StyleSheet.create({
-  header:{
+  header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingTop: 20,
     paddingBottom: 10,
-    backgroundColor: '#fff'
   },
-  userProfile:{
+  userProfile: {
     flexDirection: 'row'  
   },
-  profile:{
+  profile: {
     width: 44,
-    height:44,
+    height: 44,
     borderRadius: 22,
     marginRight: 15
   },
-  welcomeText:{
+  welcomeText: {
     fontSize: 13,
-    color: '#aaa'
   },
-  userName:{
+  userName: {
     fontSize: 17,
     fontWeight: '600'
   },
-  searchIconContainer:{
+  searchIconContainer: {
     width: 36,
-    height:36,
+    height: 36,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 18,
-    backgroundColor: '#f5f5f5',
+  },
+  searchIcon: {
+    width: 20,
+    height: 20,
   }
-
 });
- 
+
 export default Header;

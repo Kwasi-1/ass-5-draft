@@ -1,77 +1,58 @@
-import react from "react";
-import { useState } from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
-// import { Icon } from "react-native-vector-icons/EvilIcons";
-import Icon from 'react-native-vector-icons/Fontisto';
+import React from "react";
+import { View, Text, StyleSheet, FlatList, Switch } from "react-native";
+import { useTheme, lightTheme, darkTheme } from '../context/ThemeContext';
 import SettingsOption from "../components/SettingsOption";
 import options from "../data/options";
 
-
-
 const Settings = () => {
+  const { isDarkTheme, toggleTheme } = useTheme();
+  const theme = isDarkTheme ? darkTheme : lightTheme;
+
   const renderHeader = () => (
-    <Text style={styles.pageHeader}>Settings</Text>
+    <Text style={[styles.pageHeader, { color: theme.text }]}>Settings</Text>
   );
-  
+
   const renderFooter = () => (
     <View style={styles.themeSection}>
-      <Text style={styles.themeText}>Theme</Text>  
-      <ToggleIcon/>
-    </View> 
+      <Text style={[styles.themeText, { color: theme.text }]}>Theme</Text>
+      <Switch value={isDarkTheme} onValueChange={toggleTheme} />
+    </View>
   );
 
-  return ( 
-    <View style={styles.container}>
+  return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <FlatList
         data={options}
         keyExtractor={item => item.id}
-        renderItem={({item}) => <SettingsOption item={item}/>}
-
+        renderItem={({ item }) => <SettingsOption item={item} theme={theme} />}
         ListHeaderComponent={renderHeader}
         ListFooterComponent={renderFooter}
       />
-     
     </View>
   );
 }
 
-const ToggleIcon = () => {
-  const [isOn, setIsOn] = useState(false);
-
-  const toggle = () => {
-    setIsOn(!isOn);
-  };
-
-  return (
-    <TouchableOpacity onPress={toggle}>
-      <Icon name={isOn ? 'toggle-on' : 'toggle-off'} size={40} color={isOn ? 'green' : 'gray'} />
-    </TouchableOpacity>
-  );
-};
-
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff'
   },
-  pageHeader:{
+  pageHeader: {
     marginVertical: 30,
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '600'
   },
-  themeSection:{
+  themeSection: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 40,
     paddingRight: 5,
   },
-  themeText:{
+  themeText: {
     fontSize: 20,
   }
+});
 
-})
- 
 export default Settings;

@@ -1,10 +1,11 @@
-import { View, Text,StyleSheet } from "react-native";
-import Icon from 'react-native-vector-icons/EvilIcons'; // or any other icon set
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
-const SettingsOption = ({item}) => {
-  return (  
-    <View style={styles.container}>
-      <Text style={styles.option}>{item.name}</Text>
+const SettingsOption = ({ item, theme }) => {
+  return (
+    <View style={[styles.container, { backgroundColor: theme.color }]}>
+      <Text style={[styles.option, { color: theme.text }]}>{item.name}</Text>
       <Icon name="chevron-right" size={30} color="#777" />
     </View>
   );
@@ -19,9 +20,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#f2f2f2'
   },
-  option:{
+  option: {
     fontSize: 14,
   }
 });
- 
+
 export default SettingsOption;
