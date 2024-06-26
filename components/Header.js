@@ -18,15 +18,6 @@ const Header = () => {
   );
 }
 
-const Action = () => {
-  return (  
-    <View style={styles.container}>
-      <View style={styles.actionButtonContainer}>
-        <Image source={actionData.button}/>
-      </View>
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   header:{
